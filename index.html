@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Task 14</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Alatech
+        </h1>
+        <button>
+            Logout
+        </button>
+    </header>
+    <login-form style="display: none">
+        <form-container>
+            <form-header>
+                Login
+            </form-header>
+            <label for="login">Username:</label>
+            <input name="login" id="login" type="text">
+            <label for="password">Password:</label>
+            <input name="password" id="password" type="password">
+            <form-button>
+                Login
+            </form-button>
+        </form-container>
+    </login-form>
+    <nav>
+        <button>
+            Machines
+        </button>
+        <button>
+            Motherboards
+        </button>
+        <button>
+            Power Supplies
+        </button>
+        <button>
+            Processors
+        </button>
+        <button>
+            RAM Cards
+        </button>
+        <button>
+            Graphic Cards
+        </button>
+        <button>
+            Storage Devices
+        </button>
+    </nav>
+    <main>
+        <button>
+            Create new machine
+        </button>
+        <item-list>
+            
+        </item-list>
+        <machine-creation-menu style="display: none">
+            <part-list>
+                <select name="part-type" id="part-type">
+                    <option value="motherboards" selected>Motherboards</option>
+                    <option value="processors">Processors</option>
+                    <option value="ram-memories">RAM Cards</option>
+                    <option value="storage-devices">Storage Devices</option>
+                    <option value="graphic-cards">Graphic Cards</option>
+                    <option value="power-supplies">Power Supplies</option>
+                </select>
+            </part-list>
+            <machine-assembler>
+                <machine-part-container>
+                    <machine-part-cover></machine-part-cover>
+                    <machine-part-header>
+                        <machine-part-title>
+                            Motherboard
+                        </machine-part-title>
+                    </machine-part-header>
+                    <machine-part-body>
+
+                    </machine-part-body>
+                </machine-part-container>
+                <machine-part-container>
+                    <machine-part-cover></machine-part-cover>
+                    <machine-part-header>
+                        <machine-part-title>
+                            Processor
+                        </machine-part-title>
+                        <button style="display: none">
+                            Remove
+                        </button>
+                    </machine-part-header>
+                    <machine-part-body>
+                        
+                    </machine-part-body>
+                </machine-part-container>
+                <machine-part-container>
+                    <machine-part-cover></machine-part-cover>
+                    <machine-part-header>
+                        <machine-part-title>
+                            RAM Card
+                        </machine-part-title>
+                        <button style="display: none">
+                            Remove
+                        </button>
+                    </machine-part-header>
+                    <machine-part-body>
+                        
+                    </machine-part-body>
+                    <machine-part-extra>
+                        <label for="ramamount"></label>
+                        <input name="ramamount" id="ramamount" type="text">
+                    </machine-part-extra>
+                </machine-part-container>
+                <machine-part-container>
+                    <machine-part-cover></machine-part-cover>
+                    <machine-part-header>
+                        <machine-part-title>
+                            Power Supply
+                        </machine-part-title>
+                    </machine-part-header>
+                    <machine-part-body>
+
+                    </machine-part-body>
+                </machine-part-container>
+                <machine-part-container>
+                    <machine-part-cover></machine-part-cover>
+                    <machine-part-header>
+                        <machine-part-title>
+                            Graphic Card
+                        </machine-part-title>
+                        <button style="display: none">
+                            Remove
+                        </button>
+                    </machine-part-header>
+                    <machine-part-body>
+
+                    </machine-part-body>
+                    <machine-part-extra>
+                        <label for="gpuamount"></label>
+                        <input name="gpuamount" id="gpuamount" type="text">
+                    </machine-part-extra>
+                </machine-part-container>
+                <machine-part-container>
+                    <machine-part-cover></machine-part-cover>
+                    <machine-part-header>
+                        <machine-part-title>
+                            Storage Devices
+                        </machine-part-title>
+                    </machine-part-header>
+                    <machine-part-body>
+
+                    </machine-part-body>
+                </machine-part-container>
+            </machine-assembler>
+        </machine-creation-menu>
+    </main>
+    
+    <template id="item">
+        <item-container>
+            <single-item>
+                <item-image>
+                    <img src="" alt="item">
+                </item-image>
+                <item-title>
+
+                </item-title>
+                <item-details>
+
+                </item-details>
+            </single-item>
+        </item-container>
+    </template>
+    
+    <template id="storage-device">
+        <storage-device-container>
+            <storage-device>
+                <storage-device-image>
+                    <img src="" alt="item">
+                </storage-device-image>
+                <storage-device-title>
+
+                </storage-device-title>
+                <storage-device-quantity>
+
+                </storage-device-quantity>
+                <button>
+                    Remove
+                </button>
+            </storage-device>
+        </storage-device-container>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

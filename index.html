@@ -12,22 +12,26 @@
         <h1>
             Alatech
         </h1>
-        <button>
+        <button onclick="logOut()" style="display: none;">
             Logout
         </button>
     </header>
-    <login-form style="display: none">
+    <login-form style="display: flex">
         <form-container>
             <form-header>
                 Login
             </form-header>
-            <label for="login">Username:</label>
-            <input name="login" id="login" type="text">
-            <label for="password">Password:</label>
-            <input name="password" id="password" type="password">
-            <form-button>
+            <form-row>
+                <label for="login">Username:</label>
+                <input name="login" id="login" type="text">
+            </form-row>
+            <form-row>
+                <label for="password">Password:</label>
+                <input name="password" id="password" type="password">
+            </form-row>
+            <button onclick="logIn()">
                 Login
-            </form-button>
+            </button>
         </form-container>
     </login-form>
     <nav>
@@ -54,10 +58,10 @@
         </button>
     </nav>
     <main>
-        <button>
+        <button onclick="machineClick(event)">
             Create new machine
         </button>
-        <item-list style="display: none">
+        <item-list style="display: grid">
             <item-container>
                 <single-item>
                     <item-image>
@@ -185,7 +189,7 @@
                 </single-item>
             </item-container>
         </item-list>
-        <machine-creation-menu>
+        <machine-creation-menu style="display: none">
             <part-list>
                 <part-select>
                     <select name="part-type" id="part-type">
@@ -198,7 +202,7 @@
                     </select>
                 </part-select>
                 <item-container>
-                    <single-item ondragstart="const img = new Image(); img.src = '1x1.png'; event.dataTransfer.setDragImage(img, 10, 10)" ondragenter="preventDefault()" ondragover="preventDefault()" class="no-hover" draggable="true">
+                    <single-item onmousedown="mouseDown()" ondragstart="dragStart(event)" draggable="true">
                         <item-image>
                             <img draggable="false" src="gabinete.jpg" alt="item">
                         </item-image>
@@ -263,7 +267,20 @@
                         </button>
                     </machine-part-header>
                     <machine-part-body>
-                        
+                        <item-container>
+                            <single-item>
+                                <item-image>
+                                    <img draggable="false" src="gabinete.jpg" alt="item">
+                                </item-image>
+                                <item-title>
+                                    Placeholder
+                                </item-title>
+                                <item-details>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                                    <span style="width: 100%; height: 1vh;"></span>
+                                </item-details>
+                            </single-item>
+                        </item-container>
                     </machine-part-body>
                 </machine-part-container>
                 <machine-part-container>
@@ -276,7 +293,20 @@
                         </button>
                     </machine-part-header>
                     <machine-part-body>
-                        
+                        <item-container>
+                            <single-item>
+                                <item-image>
+                                    <img draggable="false" src="gabinete.jpg" alt="item">
+                                </item-image>
+                                <item-title>
+                                    Placeholder
+                                </item-title>
+                                <item-details>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                                    <span style="width: 100%; height: 1vh;"></span>
+                                </item-details>
+                            </single-item>
+                        </item-container>
                     </machine-part-body>
                     <machine-part-extra>
                         <label for="ramamount"></label>
@@ -345,7 +375,7 @@
     
     <template id="item">
         <item-container>
-            <single-item>
+            <single-item onclick="machineClick(event)">
                 <item-image>
                     <img draggable="false" src="" alt="item">
                 </item-image>
@@ -378,6 +408,7 @@
         </storage-device-container>
     </template>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

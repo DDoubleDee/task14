@@ -36,7 +36,7 @@ button {
     background-color: inherit;
     color: inherit;
     cursor: pointer;
-    text-shadow: var(--neon1-color) 0px 0px 2px;
+    text-shadow: var(--neon1-color) 0px 0px 1px;
     box-shadow: inset var(--neon2-color) 0px 0px 3px;
     outline: solid var(--neon2-color) 0.5vh;
     transition: all 0.2s ease-in-out;
@@ -47,7 +47,7 @@ button:hover {
     background-color: var(--button-color);
     color: inherit;
     cursor: pointer;
-    text-shadow: var(--neon1-color) 0px 0px 1px;
+    text-shadow: var(--neon1-color) 0px 0px 3px;
     box-shadow: inset var(--neon1-color) 0px 0px 4px 1px;
     outline: solid var(--neon1-color) 0.4vh;
 }
@@ -158,6 +158,12 @@ single-item:hover {
     height: 30vh;
     grid-template-columns: 30vh 15vh;
 }
+.no-hover:hover {
+    box-shadow: inset var(--neon1-color) 0px 0px 1px, var(--neon1-color) 0px 0px 9px 4px;
+    width: 25vh;
+    height: 25vh;
+    grid-template-columns: 25vh 15vh;
+}
 item-image, item-image img {
     cursor: pointer;
     max-height: 100%;
@@ -186,19 +192,179 @@ machine-creation-menu {
     margin-top: 5%;
     display: grid;
     grid-template-rows: 100%;
-    grid-template-columns: 25vw 65vw;
+    grid-template-columns: 27vw 63vw;
 }
 part-list {
     margin: 0 2vw 0 0;
-    box-shadow: var(--neon1-color) 0px 0px 9px 6px;
+    padding-bottom: 2vh;
+    box-shadow: var(--neon1-color) 0px 0px 9px 6px, inset var(--neon1-color) 0px 0px 3px 2px;
     border-radius: 6px;
     overflow-y: auto;
+    display: grid;
+    grid-auto-rows: 45%;
+    grid-template-rows: 9.5% 45%;
+    grid-template-columns: 100%;
 }
 part-select {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     position: relative;
-    margin: auto;
-    width: 50%;
+    width: 100%;
+    height: 20vh;
+}
+select {
+    background-color: var(--button-color);
+    appearance: none;
+    border: none;
+    padding: 0 0 0 0;
+    margin: 0;
+    width: 100%;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    line-height: inherit;
+    text-align: center;
+    text-shadow: var(--neon1-color) 0px 0px 2px;
+    border-bottom: solid var(--neon1-color) 0.4vh;
+    box-shadow: inset var(--neon1-color) 0px 0px 9px -1px, var(--neon1-color) 0px 5px 10px -7px;
+}
+select:focus {
+    outline: 0;
+}
+select option {
+    text-shadow: var(--neon1-color) 0px 0px 2px;
+}
+machine-assembler {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+machine-part-container {
+    border-radius: 0.2rem;
+    display: grid;
+    grid-template-rows: 25% 75%;
+    grid-template-columns: 75% 25%;
+    padding: 10px 13px;
+    margin: 11px;
+    box-shadow: var(--neon1-color) 0px 0px 3px 1px, inset var(--neon1-color) 0px 0px 1px 1px;
+    transition: all 0.2s ease-out;
+    outline: solid var(--neon1-color) 0px;
+}
+.droppable {
+    box-shadow: var(--neon1-color) 0px 0px 9px 6px, inset var(--neon1-color) 0px 0px 3px 2px;
+}
+machine-part-header {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 70% 30%;
+    align-items: center;
+    grid-column: span 2;
+}
+machine-part-header button {
+    position: static;
+    padding: 0 0;
+    font-size: 0.5rem;
+    height: 0.7rem;
+}
+machine-part-title {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+.dim {
+    filter: brightness(0.2);
+    box-shadow: var(--neon1-color) 0px 0px 3px -10px, inset var(--neon1-color) 0px 0px 1px -10px;
+    outline: solid var(--neon1-color) 1px;
+}
+machine-part-body {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 100%;
+}
+machine-part-body single-item {
+    margin: 2vh 0 0 1vh;
+    width: 20vh;
+    height: 20vh;
+    grid-template-columns: 20vh 10vh;
+}
+machine-part-body single-item:hover {
+    box-shadow: inset var(--neon1-color) 0px 0px 3px 1px, var(--neon1-color) 0px 0px 3px 4px;
+    width: 30vh;
+    height: 20vh;
+    grid-template-columns: 20vh 10vh;
+}
+machine-part-body item-title {
+    position: absolute;
+    bottom: 5%;
+    background-color: var(--button-color);
+    left: 5%;
+    border-radius: 1vh;
+    font-size: 0.5rem;
+    padding: 2%;
+}
+machine-part-body item-details {
+    border-left: solid var(--neon1-color) 0.4vh;
+    padding: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.35rem;
+    overflow-y: auto;
+}
+machine-part-extra input, storage-device-quantity input {
+    border-radius: 0.2rem;
+    background-color: var(--button-color);
+    color: inherit;
+    width: 80%;
+    outline: 0;
+    text-shadow: var(--neon1-color) 0px 0px 1px;
+    box-shadow: inset var(--neon2-color) 0px 0px 3px;
+    border: 0;
+    outline: solid var(--neon2-color) 0.5vh;
+    transition: all 0.2s ease-in-out;
+}
+machine-part-extra input:focus, storage-device-quantity input:focus {
+    text-shadow: var(--neon1-color) 0px 0px 3px;
+    box-shadow: inset var(--neon1-color) 0px 0px 4px 1px;
+    outline: solid var(--neon1-color) 0.4vh;
+}
+.storage {
+    height: 100%;
+    display: grid;
+    grid-auto-rows: 2rem;
+    grid-template-rows: 2rem;
+    grid-template-columns: 100%;
+    grid-column: span 2;
+}
+storage-device {
+    padding: 0.2rem 0.2rem 0.4rem 0.2rem;
+    outline: solid var(--neon1-color) 0.4vh;
+    box-shadow: inset var(--neon1-color) 0px 0px 3px 1px, var(--neon1-color) 0px 0px 3px 4px;
+    display: grid;
+    grid-template-rows: 1rem 1rem;
+    grid-template-columns: 2rem 3.5rem 3rem;
+    border-radius: 0.2rem;
+}
+storage-device item-image {
+    grid-row: span 2;
+}
+storage-device item-image img {
+    cursor: default;
+}
+storage-device button {
+    grid-row: span 2;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0.6rem 0.3rem;
+    padding: 0 0.3rem;
+    font-size: 0.5rem;
+}
+storage-device-quantity input {
+    margin-left: 0.5rem;
+}
+storage-device-title {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
 }

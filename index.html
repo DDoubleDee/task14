@@ -61,7 +61,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -75,7 +75,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -89,7 +89,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -103,7 +103,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -117,7 +117,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -131,7 +131,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -145,7 +145,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="34.png" alt="item">
+                        <img draggable="false" src="34.png" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -159,7 +159,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -173,7 +173,7 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
@@ -197,26 +197,68 @@
                         <option value="power-supplies">Power Supplies</option>
                     </select>
                 </part-select>
+                <item-container>
+                    <single-item ondragstart="const img = new Image(); img.src = '1x1.png'; event.dataTransfer.setDragImage(img, 10, 10)" ondragenter="preventDefault()" ondragover="preventDefault()" class="no-hover" draggable="true">
+                        <item-image>
+                            <img draggable="false" src="gabinete.jpg" alt="item">
+                        </item-image>
+                        <item-title>
+                            Placeholder
+                        </item-title>
+                        <item-details>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                            <span style="width: 100%; height: 1vh;"></span>
+                        </item-details>
+                    </single-item>
+                </item-container>
+                <item-container>
+                    <single-item>
+                        <item-image>
+                            <img draggable="false" src="gabinete.jpg" alt="item">
+                        </item-image>
+                        <item-title>
+                            Placeholder
+                        </item-title>
+                        <item-details>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                            <span style="width: 100%; height: 1vh;"></span>
+                        </item-details>
+                    </single-item>
+                </item-container>
             </part-list>
             <machine-assembler>
-                <machine-part-container>
-                    <machine-part-cover></machine-part-cover>
+                <machine-part-container class="droppable">
                     <machine-part-header>
                         <machine-part-title>
                             Motherboard
                         </machine-part-title>
+                        <button>
+                            Remove
+                        </button>
                     </machine-part-header>
                     <machine-part-body>
-
+                        <item-container>
+                            <single-item>
+                                <item-image>
+                                    <img draggable="false" src="gabinete.jpg" alt="item">
+                                </item-image>
+                                <item-title>
+                                    Placeholder
+                                </item-title>
+                                <item-details>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                                    <span style="width: 100%; height: 1vh;"></span>
+                                </item-details>
+                            </single-item>
+                        </item-container>
                     </machine-part-body>
                 </machine-part-container>
                 <machine-part-container>
-                    <machine-part-cover></machine-part-cover>
                     <machine-part-header>
                         <machine-part-title>
                             Processor
                         </machine-part-title>
-                        <button style="display: none">
+                        <button>
                             Remove
                         </button>
                     </machine-part-header>
@@ -225,12 +267,11 @@
                     </machine-part-body>
                 </machine-part-container>
                 <machine-part-container>
-                    <machine-part-cover></machine-part-cover>
                     <machine-part-header>
                         <machine-part-title>
                             RAM Card
                         </machine-part-title>
-                        <button style="display: none">
+                        <button>
                             Remove
                         </button>
                     </machine-part-header>
@@ -239,27 +280,28 @@
                     </machine-part-body>
                     <machine-part-extra>
                         <label for="ramamount"></label>
-                        <input name="ramamount" id="ramamount" type="text">
+                        <input name="ramamount" id="ramamount" type="number" value="1">
                     </machine-part-extra>
                 </machine-part-container>
                 <machine-part-container>
-                    <machine-part-cover></machine-part-cover>
                     <machine-part-header>
                         <machine-part-title>
                             Power Supply
                         </machine-part-title>
+                        <button>
+                            Remove
+                        </button>
                     </machine-part-header>
                     <machine-part-body>
 
                     </machine-part-body>
                 </machine-part-container>
                 <machine-part-container>
-                    <machine-part-cover></machine-part-cover>
                     <machine-part-header>
                         <machine-part-title>
                             Graphic Card
                         </machine-part-title>
-                        <button style="display: none">
+                        <button>
                             Remove
                         </button>
                     </machine-part-header>
@@ -268,18 +310,33 @@
                     </machine-part-body>
                     <machine-part-extra>
                         <label for="gpuamount"></label>
-                        <input name="gpuamount" id="gpuamount" type="text">
+                        <input name="gpuamount" id="gpuamount" type="number" value="1">
                     </machine-part-extra>
                 </machine-part-container>
-                <machine-part-container>
-                    <machine-part-cover></machine-part-cover>
+                <machine-part-container class="dim">
                     <machine-part-header>
                         <machine-part-title>
                             Storage Devices
                         </machine-part-title>
                     </machine-part-header>
-                    <machine-part-body>
-
+                    <machine-part-body class="storage">
+                        <storage-device-container>
+                            <storage-device>
+                                <item-image>
+                                    <img draggable="false" src="gabinete.jpg" alt="item">
+                                </item-image>
+                                <storage-device-title>
+                                    Title
+                                </storage-device-title>
+                                <button>
+                                    Remove
+                                </button>
+                                <storage-device-quantity>
+                                    <label for="storageamount"></label>
+                                    <input name="storageamount" class="storageamount" type="number" value="1">
+                                </storage-device-quantity>
+                            </storage-device>
+                        </storage-device-container>
                     </machine-part-body>
                 </machine-part-container>
             </machine-assembler>
@@ -290,7 +347,7 @@
         <item-container>
             <single-item>
                 <item-image>
-                    <img src="" alt="item">
+                    <img draggable="false" src="" alt="item">
                 </item-image>
                 <item-title>
 
@@ -305,9 +362,9 @@
     <template id="storage-device">
         <storage-device-container>
             <storage-device>
-                <storage-device-image>
-                    <img src="" alt="item">
-                </storage-device-image>
+                <item-image>
+                    <img draggable="false" src="" alt="item">
+                </item-image>
                 <storage-device-title>
 
                 </storage-device-title>

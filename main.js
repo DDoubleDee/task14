@@ -3,23 +3,40 @@ const itemlist = document.querySelector("item-list"),
     main = document.querySelector("main"),
     mainb = document.querySelector("main button"),
     loginform = document.querySelector("login-form"),
-    logout = document.querySelector("header button")
+    logout = document.querySelector("header button"),
+    host = "http://task12/alatech/api"
 
 let await = false,
     currentDrag,
     clientHeight,
     clientWidth,
-    transition
+    transition,
+    token = window.localStorage.getItem("token"),
+    axiosi
+
+if(token){
+    logout.style.display = "block"
+    loginform.style.display = "none"
+}
 
 function logIn() {
-    logout.style.display = "block"
-    $({ timer: 0 }).animate({ timer: 100 }, {
-        duration: 500, step: (now) => { loginform.children[0].style.left = `${now}vw`; loginform.style.filter = `opacity(${(100 - now) / 100})` }, complete: () => {
-            loginform.style.display = "none"
-        }
-    })
+    const inputs = loginform.querySelectorAll("input")
+    // axios.post(host + '/login', {username: inputs[0].value, password: inputs[1].value})
+    // .then((answer) => {
+        // console.log(answer)
+        logout.style.display = "block"
+        $({ timer: 0 }).animate({ timer: 100 }, {
+            duration: 500, step: (now) => { loginform.children[0].style.left = `${now}vw`; loginform.style.filter = `opacity(${(100 - now) / 100})` }, complete: () => {
+                loginform.style.display = "none"
+            }
+        })
+    // })
+    // .catch((error) => {
+        // console.log(error)
+    // })
 }
 function logOut() {
+    window.localStorage.setItem("token", null)
     loginform.children[0].style.left = `${0}vw`
     loginform.style.filter = `opacity(${(100 - 0) / 100})`
     loginform.style.display = "flex"
@@ -51,11 +68,7 @@ function toggleScreen() {
         }
     })
 }
-window.addEventListener("mousedown", (ev) => {
-    console.log(`${ev.clientY} ${ev.clientX}`)
-})
-window.addEventListener("mouseup", (ev) => {
-    window.removeEventListener("mousemove", track)
+function floatBack(ev) {
     if (currentDrag) {
         let targetX = currentDrag.parentElement.offsetLeft + currentDrag.parentElement.clientWidth / 2 - clientWidth / 2,
             targetY = currentDrag.parentElement.offsetTop + currentDrag.parentElement.offsetHeight / 2 + clientHeight / 8.5,
@@ -68,13 +81,20 @@ window.addEventListener("mouseup", (ev) => {
                 currentDrag.style.left = null
                 currentDrag.style.zIndex = "88"
                 currentDrag.style.position = "absolute"
-                currentDrag.classList.remove("no-hover")
                 currentDrag.style.transition = transition
+                currentDrag.querySelector("img").style.cursor = "pointer"
+                currentDrag.classList.remove("no-hover")
                 currentDrag = null
             }
         })
-
     }
+}
+window.addEventListener("mousedown", (ev) => {
+    console.log(`${ev.clientY} ${ev.clientX}`)
+})
+window.addEventListener("mouseup", (ev) => {
+    window.removeEventListener("mousemove", track)
+    floatBack(ev)
 })
 function mouseDown() {
     window.addEventListener("mousemove", track)
@@ -89,6 +109,7 @@ function dragStart(ev) {
     ev.target.classList.add("no-hover")
     currentDrag = ev.target
     transition = currentDrag.style.transition
+    currentDrag.querySelector("img").style.cursor = "grab"
     currentDrag.style.transition = "all 0s"
     currentDrag.style.zIndex = "100"
     clientHeight = currentDrag.clientHeight

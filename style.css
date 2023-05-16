@@ -159,6 +159,10 @@ single-item:hover {
     height: 30vh;
     grid-template-columns: 30vh 15vh;
 }
+single-item:hover item-title {
+    bottom: -1vh;
+    width: 25vh;
+}
 .no-hover:hover {
     box-shadow: inset var(--neon1-color) 0px 0px 1px, var(--neon1-color) 0px 0px 9px 4px;
     width: 25vh;
@@ -171,13 +175,18 @@ item-image, item-image img {
     max-width: 100%;
 }
 item-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    bottom: 5%;
+    bottom: 1vh;
     background-color: var(--button-color);
-    left: 5%;
+    left: 1.5vh;
     border-radius: 1vh;
     font-size: 0.8rem;
     padding: 2%;
+    width: 21vh;
+    transition: all 0.2s ease-out;
 }
 item-details {
     background-color: var(--main-color);
@@ -295,11 +304,16 @@ machine-part-body single-item:hover {
     height: 20vh;
     grid-template-columns: 20vh 10vh;
 }
+machine-part-body single-item:hover item-title {
+    width: 17vh;
+    bottom: -1vh;
+}
 machine-part-body item-title {
     position: absolute;
-    bottom: 5%;
+    width: 17vh;
+    bottom: 1vh;
     background-color: var(--button-color);
-    left: 5%;
+    left: 1vh;
     border-radius: 1vh;
     font-size: 0.5rem;
     padding: 2%;
@@ -332,19 +346,20 @@ machine-part-extra input:focus, storage-device-quantity input:focus {
 .storage {
     height: 100%;
     display: grid;
-    grid-auto-rows: 2rem;
-    grid-template-rows: 2rem;
+    grid-auto-rows: 3rem;
+    grid-template-rows: 3rem;
     grid-template-columns: 100%;
     grid-column: span 2;
+    overflow-y: auto;
 }
 storage-device {
     padding: 0.2rem 0.2rem 0.4rem 0.2rem;
     outline: solid var(--neon1-color) 0.4vh;
-    box-shadow: inset var(--neon1-color) 0px 0px 3px 1px, var(--neon1-color) 0px 0px 3px 4px;
+    box-shadow: inset var(--neon1-color) 0px 0px 1px 1px, var(--neon1-color) 0px 0px 2px 1px;
     display: grid;
     grid-template-rows: 1rem 1rem;
     grid-template-columns: 2rem 3.5rem 3rem;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
 }
 storage-device item-image {
     grid-row: span 2;
@@ -381,7 +396,7 @@ login-form {
     background-color: rgba(0, 0, 0, 0.897);
     transition: all 0.2 ease-out;
 }
-form-container {
+form {
     position: relative;
     padding: 1vw 2vw;
     border-radius: 1vw;
@@ -391,7 +406,7 @@ form-container {
     grid-template-columns: 100%;
     box-shadow: var(--neon2-color) 0px 0px 9px 4px;
 }
-form-container input {
+form input {
     border-radius: 0.2rem;
     background-color: var(--button-color);
     color: inherit;
@@ -402,7 +417,7 @@ form-container input {
     outline: solid var(--neon2-color) 0.5vh;
     transition: all 0.2s ease-in-out;
 }
-form-container input:focus {
+form input:focus {
     text-shadow: var(--neon1-color) 0px 0px 3px;
     box-shadow: inset var(--neon1-color) 0px 0px 4px 1px;
     outline: solid var(--neon1-color) 0.4vh;
@@ -416,7 +431,7 @@ form-row * {
     margin-bottom: 0.2rem;
     font-size: 0.8rem;
 }
-form-container button {
+form button {
     margin: 3vh 4vw;
     border-radius: 1vh;
 }

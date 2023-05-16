@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/task14/style.css">
     <title>Task 14</title>
 </head>
 <body>
@@ -17,43 +17,43 @@
         </button>
     </header>
     <login-form style="display: flex">
-        <form-container>
+        <form onsubmit="event.preventDefault()">
             <form-header>
                 Login
             </form-header>
             <form-row>
                 <label for="login">Username:</label>
-                <input name="login" id="login" type="text">
+                <input name="login" id="login" type="text" autocomplete="username">
             </form-row>
             <form-row>
                 <label for="password">Password:</label>
-                <input name="password" id="password" type="password">
+                <input name="password" id="password" type="password" autocomplete="current-password">
             </form-row>
             <button onclick="logIn()">
                 Login
             </button>
-        </form-container>
+        </form>
     </login-form>
     <nav>
-        <button>
+        <button onclick="loadMain('machines')">
             Machines
         </button>
-        <button>
+        <button onclick="loadMain('motherboards')">
             Motherboards
         </button>
-        <button>
+        <button onclick="loadMain('power-supplies')">
             Power Supplies
         </button>
-        <button>
+        <button onclick="loadMain('processors')">
             Processors
         </button>
-        <button>
+        <button onclick="loadMain('ram-memories')">
             RAM Cards
         </button>
-        <button>
+        <button onclick="loadMain('graphic-cards')">
             Graphic Cards
         </button>
-        <button>
+        <button onclick="loadMain('storage-devices')">
             Storage Devices
         </button>
     </nav>
@@ -65,13 +65,13 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img draggable="false" src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="/task14/gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
                     </item-title>
                     <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                        Lorem, ipsum 
                         <span style="width: 100%; height: 1vh;"></span>
                     </item-details>
                 </single-item>
@@ -79,13 +79,13 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img draggable="false" src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="/task14/gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
                     </item-title>
                     <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                        Lorem, ipsum 
                         <span style="width: 100%; height: 1vh;"></span>
                     </item-details>
                 </single-item>
@@ -93,13 +93,13 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img draggable="false" src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="/task14/gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
                     </item-title>
                     <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                        Lorem, ipsum 
                         <span style="width: 100%; height: 1vh;"></span>
                     </item-details>
                 </single-item>
@@ -107,13 +107,13 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img draggable="false" src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="/task14/34.png" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
                     </item-title>
                     <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                        Lorem, ipsum 
                         <span style="width: 100%; height: 1vh;"></span>
                     </item-details>
                 </single-item>
@@ -121,13 +121,13 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img draggable="false" src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="/task14/gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
                     </item-title>
                     <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                        Lorem, ipsum 
                         <span style="width: 100%; height: 1vh;"></span>
                     </item-details>
                 </single-item>
@@ -135,55 +135,13 @@
             <item-container>
                 <single-item>
                     <item-image>
-                        <img draggable="false" src="gabinete.jpg" alt="item">
+                        <img draggable="false" src="/task14/gabinete.jpg" alt="item">
                     </item-image>
                     <item-title>
                         Placeholder
                     </item-title>
                     <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
-                        <span style="width: 100%; height: 1vh;"></span>
-                    </item-details>
-                </single-item>
-            </item-container>
-            <item-container>
-                <single-item>
-                    <item-image>
-                        <img draggable="false" src="34.png" alt="item">
-                    </item-image>
-                    <item-title>
-                        Placeholder
-                    </item-title>
-                    <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
-                        <span style="width: 100%; height: 1vh;"></span>
-                    </item-details>
-                </single-item>
-            </item-container>
-            <item-container>
-                <single-item>
-                    <item-image>
-                        <img draggable="false" src="gabinete.jpg" alt="item">
-                    </item-image>
-                    <item-title>
-                        Placeholder
-                    </item-title>
-                    <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
-                        <span style="width: 100%; height: 1vh;"></span>
-                    </item-details>
-                </single-item>
-            </item-container>
-            <item-container>
-                <single-item>
-                    <item-image>
-                        <img draggable="false" src="gabinete.jpg" alt="item">
-                    </item-image>
-                    <item-title>
-                        Placeholder
-                    </item-title>
-                    <item-details>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                        Lorem, ipsum 
                         <span style="width: 100%; height: 1vh;"></span>
                     </item-details>
                 </single-item>
@@ -192,25 +150,25 @@
         <machine-creation-menu style="display: none">
             <part-list>
                 <part-select>
-                    <select name="part-type" id="part-type">
+                    <select onchange="loadParts()" name="part-type" id="part-type">
                         <option value="motherboards" selected>Motherboards</option>
                         <option value="processors">Processors</option>
                         <option value="ram-memories">RAM Cards</option>
-                        <option value="storage-devices">Storage Devices</option>
-                        <option value="graphic-cards">Graphic Cards</option>
                         <option value="power-supplies">Power Supplies</option>
+                        <option value="graphic-cards">Graphic Cards</option>
+                        <option value="storage-devices">Storage Devices</option>
                     </select>
                 </part-select>
                 <item-container>
                     <single-item onmousedown="mouseDown()" ondragstart="dragStart(event)" draggable="true">
                         <item-image>
-                            <img draggable="false" src="gabinete.jpg" alt="item">
+                            <img draggable="false" src="/task14/gabinete.jpg" alt="item">
                         </item-image>
                         <item-title>
                             Placeholder
                         </item-title>
                         <item-details>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                            Lorem, ipsum 
                             <span style="width: 100%; height: 1vh;"></span>
                         </item-details>
                     </single-item>
@@ -218,43 +176,30 @@
                 <item-container>
                     <single-item>
                         <item-image>
-                            <img draggable="false" src="gabinete.jpg" alt="item">
+                            <img draggable="false" src="/task14/gabinete.jpg" alt="item">
                         </item-image>
                         <item-title>
                             Placeholder
                         </item-title>
                         <item-details>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
+                            Lorem, ipsum 
                             <span style="width: 100%; height: 1vh;"></span>
                         </item-details>
                     </single-item>
                 </item-container>
             </part-list>
             <machine-assembler>
-                <machine-part-container class="droppable">
+                <machine-part-container>
                     <machine-part-header>
                         <machine-part-title>
                             Motherboard
                         </machine-part-title>
-                        <button>
+                        <button onclick="remove(event)">
                             Remove
                         </button>
                     </machine-part-header>
                     <machine-part-body>
-                        <item-container>
-                            <single-item>
-                                <item-image>
-                                    <img draggable="false" src="gabinete.jpg" alt="item">
-                                </item-image>
-                                <item-title>
-                                    Placeholder
-                                </item-title>
-                                <item-details>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
-                                    <span style="width: 100%; height: 1vh;"></span>
-                                </item-details>
-                            </single-item>
-                        </item-container>
+
                     </machine-part-body>
                 </machine-part-container>
                 <machine-part-container>
@@ -262,25 +207,12 @@
                         <machine-part-title>
                             Processor
                         </machine-part-title>
-                        <button>
+                        <button onclick="remove(event)">
                             Remove
                         </button>
                     </machine-part-header>
                     <machine-part-body>
-                        <item-container>
-                            <single-item>
-                                <item-image>
-                                    <img draggable="false" src="gabinete.jpg" alt="item">
-                                </item-image>
-                                <item-title>
-                                    Placeholder
-                                </item-title>
-                                <item-details>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
-                                    <span style="width: 100%; height: 1vh;"></span>
-                                </item-details>
-                            </single-item>
-                        </item-container>
+
                     </machine-part-body>
                 </machine-part-container>
                 <machine-part-container>
@@ -288,25 +220,12 @@
                         <machine-part-title>
                             RAM Card
                         </machine-part-title>
-                        <button>
+                        <button onclick="remove(event)">
                             Remove
                         </button>
                     </machine-part-header>
                     <machine-part-body>
-                        <item-container>
-                            <single-item>
-                                <item-image>
-                                    <img draggable="false" src="gabinete.jpg" alt="item">
-                                </item-image>
-                                <item-title>
-                                    Placeholder
-                                </item-title>
-                                <item-details>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, asperiores. Soluta eos laborum dignissimos. Odit ad architecto quisquam error praesentium minima magnam at ex nesciunt? Porro pariatur ducimus quas ad!
-                                    <span style="width: 100%; height: 1vh;"></span>
-                                </item-details>
-                            </single-item>
-                        </item-container>
+                        
                     </machine-part-body>
                     <machine-part-extra>
                         <label for="ramamount"></label>
@@ -318,7 +237,7 @@
                         <machine-part-title>
                             Power Supply
                         </machine-part-title>
-                        <button>
+                        <button onclick="remove(event)">
                             Remove
                         </button>
                     </machine-part-header>
@@ -331,7 +250,7 @@
                         <machine-part-title>
                             Graphic Card
                         </machine-part-title>
-                        <button>
+                        <button onclick="remove(event)">
                             Remove
                         </button>
                     </machine-part-header>
@@ -343,30 +262,14 @@
                         <input name="gpuamount" id="gpuamount" type="number" value="1">
                     </machine-part-extra>
                 </machine-part-container>
-                <machine-part-container class="dim">
+                <machine-part-container>
                     <machine-part-header>
                         <machine-part-title>
                             Storage Devices
                         </machine-part-title>
                     </machine-part-header>
                     <machine-part-body class="storage">
-                        <storage-device-container>
-                            <storage-device>
-                                <item-image>
-                                    <img draggable="false" src="gabinete.jpg" alt="item">
-                                </item-image>
-                                <storage-device-title>
-                                    Title
-                                </storage-device-title>
-                                <button>
-                                    Remove
-                                </button>
-                                <storage-device-quantity>
-                                    <label for="storageamount"></label>
-                                    <input name="storageamount" class="storageamount" type="number" value="1">
-                                </storage-device-quantity>
-                            </storage-device>
-                        </storage-device-container>
+                        
                     </machine-part-body>
                 </machine-part-container>
             </machine-assembler>
@@ -377,7 +280,7 @@
         <item-container>
             <single-item onclick="machineClick(event)">
                 <item-image>
-                    <img draggable="false" src="" alt="item">
+                    <img draggable="false" src="/task14/" alt="item">
                 </item-image>
                 <item-title>
 
@@ -393,22 +296,22 @@
         <storage-device-container>
             <storage-device>
                 <item-image>
-                    <img draggable="false" src="" alt="item">
+                    <img draggable="false" src="/task14/" alt="item">
                 </item-image>
                 <storage-device-title>
 
                 </storage-device-title>
                 <storage-device-quantity>
-
+                    <input name="storageamount" class="storageamount" type="number" value="1">
                 </storage-device-quantity>
-                <button>
+                <button onclick="removeSd(event)">
                     Remove
                 </button>
             </storage-device>
         </storage-device-container>
     </template>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="jquery-3.6.0.min.js"></script>
-    <script src="main.js"></script>
+    <script src="/task14/jquery-3.6.0.min.js"></script>
+    <script src="/task14/main.js"></script>
 </body>
 </html>

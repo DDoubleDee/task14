@@ -95,13 +95,13 @@ function logIn() {
     axios.post(host + '/login', { username: inputs[0].value, password: inputs[1].value })
         .then((answer) => {
             window.localStorage.setItem("token", answer.data.token)
-            axiosi = axios.create({
+            axiosi = axios.create({ // create axios instance
                 baseURL: host,
                 timeout: 4000,
                 headers: { "Authorization": "Bearer " + answer.data.token }
             })
             logout.style.display = "block"
-            loadMain("machines")
+            loadMain("machines") // load main items
             $({ timer: 0 }).animate({ timer: 100 }, {
                 duration: 500, step: (now) => { loginform.children[0].style.left = `${now}vw`; loginform.style.filter = `opacity(${(100 - now) / 100})` }, complete: () => {
                     loginform.style.display = "none"
@@ -129,14 +129,14 @@ function machineClick(ev) {
     if (await) { return }
     if (ev.target.getAttribute("value") === null) { return }
     if (itemlist.style.display != "none") {
-        loadParts()
+        loadParts() // load machine parts
     }
-    toggleScreen()
+    toggleScreen() // change screens
 }
 function toggleScreen() {
     if (await) { return }
     await = true
-    $({ timer: 0 }).animate({ timer: 100 }, {
+    $({ timer: 0 }).animate({ timer: 100 }, { // animate down and up
         easing: "swing", duration: 1000, step: (now) => { main.style.marginTop = `${now}vh` }, complete: () => {
             if (itemlist.style.display == "none") {
                 itemlist.style.display = "grid"
@@ -155,10 +155,10 @@ function toggleScreen() {
         }
     })
 }
-function floatBack(ev) {
+function floatBack(ev) { // animate drop
     if (currentDrag) {
         let dropped
-        machinepartcontainers.forEach(element => {
+        machinepartcontainers.forEach(element => { // iterate over all machine parts and check if item was dropped correctly
             let y = (element.offsetTop + element.clientHeight / 2 + 70),
                 x = (element.offsetLeft + element.clientWidth / 2)
                 console.log({y: y, x: x, cy: ev.clientY, cx: ev.clientX, height: element.clientHeight / 2, width: element.clientWidth / 2, top: element.offsetTop, left: element.offsetLeft, elem: element})
@@ -166,19 +166,19 @@ function floatBack(ev) {
                 dropped = element
             }
             element.classList.remove("dim")
-            element.classList.remove("droppable")
+            element.classList.remove("droppable") // clean classes
         });
         let target = currentDrag.parentElement
-        if (dropped) {
+        if (dropped) { // set target for animation
             target = dropped
         } else {
-            currentDrag.style.filter = "opacity(0.6)"
+            currentDrag.style.filter = "opacity(0.6)" // if incorrect change visual
             currentDrag.style.boxShadow = "inset red 0px 0px 3px 1px, red 0px 0px 3px 4px"
         }
         let targetX = target.offsetLeft + target.clientWidth / 2 - clientWidth / 2,
             targetY = target.offsetTop + target.offsetHeight / 2 + clientHeight / 8.5,
             fromY = clientHeight / 2 + ev.clientY - clientHeight,
-            fromX = clientWidth / 2 + ev.clientX - clientWidth
+            fromX = clientWidth / 2 + ev.clientX - clientWidth // calculate animation values
         $({ Y: fromY, X: fromX }).animate({ Y: targetY, X: targetX }, {
             duration: 1000, step: (Y, X) => { if (X.prop == 'X') { currentDrag.style.left = `${X.now}px` } else { currentDrag.style.top = `${X.now}px` } }, complete: () => {
                 currentDrag.style.top = null
@@ -188,44 +188,41 @@ function floatBack(ev) {
                 currentDrag.style.transition = transition
                 currentDrag.style.filter = null
                 currentDrag.style.boxShadow = null
-                currentDrag.querySelector("img").style.cursor = "pointer"
+                currentDrag.querySelector("img").style.cursor = "pointer" // reset styles
                 currentDrag.classList.remove("no-hover")
                 if (dropped) {
-                    if (dropped == machinepartcontainers[5]) {
+                    if (dropped == machinepartcontainers[5]) { // check if it's a storage device
                         let sd = sdtemplate.content.cloneNode(true)
                         sd.querySelector("storage-device-title").innerHTML = currentDrag.querySelector("item-title").innerHTML
                         sd.querySelector("img").src = currentDrag.querySelector("img").src
                         dropped.querySelector("machine-part-body").appendChild(sd)
-                    } else if (dropped == machinepartcontainers[0]) {
+                    } else if (dropped == machinepartcontainers[0]) { // check if motherboard
                         machinepartcontainers.forEach(element => {
-                            element.querySelector("machine-part-body").innerHTML = ""
+                            element.querySelector("machine-part-body").innerHTML = "" // clean all
                         });
                         let drop = dropped.querySelector("machine-part-body")
                         drop.appendChild(currentDrag.parentElement.cloneNode(true))
                     } else {
                         let drop = dropped.querySelector("machine-part-body")
-                        drop.innerHTML = ""
+                        drop.innerHTML = "" // clean previous
                         drop.appendChild(currentDrag.parentElement.cloneNode(true))
                     }
                 }
-                currentDrag = null
+                currentDrag = null // clean dragged item
             }
         })
     }
 }
-window.addEventListener("mousedown", (ev) => {
-    console.log(`${ev.clientY} ${ev.clientX}`)
-})
 window.addEventListener("mouseup", (ev) => {
-    window.removeEventListener("mousemove", track)
+    window.removeEventListener("mousemove", track) // stop tracking
     floatBack(ev)
 })
 function mouseDown() {
     prepareDrop()
-    window.addEventListener("mousemove", track)
+    window.addEventListener("mousemove", track) //start tracking item
 }
 function prepareDrop() {
-    switch (select.value) {
+    switch (select.value) { // add visuals
         case "motherboards":
             machinepartcontainers.forEach(element => {
                 element.classList.add("dim")
@@ -273,12 +270,12 @@ function prepareDrop() {
             break;
     }
 }
-function track(ev) {
+function track(ev) { // animate dragged item
     currentDrag.style.position = "fixed"
     currentDrag.style.top = `${clientHeight / 2 + ev.clientY - clientHeight}px`
     currentDrag.style.left = `${clientWidth / 2 + ev.clientX - clientWidth}px`
 }
-function dragStart(ev) {
+function dragStart(ev) { // prepare for tracking
     ev.preventDefault()
     ev.target.classList.add("no-hover")
     currentDrag = ev.target
